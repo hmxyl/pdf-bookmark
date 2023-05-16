@@ -1,2 +1,7 @@
 # pdf-bookmark
-PDF文件加目录的小工具
+
+# 来源：https://github.com/ifnoelse/pdf-bookmark/releases
+
+## 示例
+
+![](./img/intro.gif)
