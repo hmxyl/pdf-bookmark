@@ -34,17 +34,9 @@ public class Main extends Application {
         TextField filePath = new TextField();
         filePath.setEditable(false);
         filePath.setPromptText("请选择PDF文件");
-
-
         Button fileSelectorBtn = new Button("选择文件");
 
-
-        BorderPane topPane = new BorderPane();
-        topPane.setCenter(filePath);
         TextField pageIndexOffset = new TextField();
-        topPane.setRight(new HBox(pageIndexOffset, fileSelectorBtn));
-
-
         pageIndexOffset.setPromptText("页码偏移量");
         pageIndexOffset.setPrefWidth(100);
         pageIndexOffset.focusedProperty().addListener((observable, oldValue, newValue) -> {
@@ -56,6 +48,18 @@ public class Main extends Application {
             }
         });
 
+        BorderPane headPane = new BorderPane();
+        headPane.setCenter(filePath);
+        headPane.setRight(new HBox(fileSelectorBtn, pageIndexOffset));
+
+
+        TextField linkField = new TextField();
+        linkField.setText("查找图书目录网址：http://product.china-pub.com");
+        linkField.setPrefWidth(100);
+
+        BorderPane topPane = new BorderPane();
+        topPane.setTop(headPane);
+        topPane.setCenter(linkField);
 
         Button contentsGenerator = new Button("生成目录");
         Button getContents = new Button("获取目录");
